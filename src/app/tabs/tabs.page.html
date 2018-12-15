@@ -1,30 +1,30 @@
 <ion-tabs>
 
-  <ion-tab tab="tab1">
-    <ion-router-outlet name="tab1"></ion-router-outlet>
+  <ion-tab tab="lipstick-finder">
+    <ion-router-outlet name="o-lipstick-finder"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="tab2">
-    <ion-router-outlet name="tab2"></ion-router-outlet>
+  <ion-tab tab="color-finder">
+    <ion-router-outlet name="o-color-finder"></ion-router-outlet>
   </ion-tab>
-  <ion-tab tab="tab3">
-    <ion-router-outlet name="tab3"></ion-router-outlet>
+  <ion-tab tab="my">
+    <ion-router-outlet name="o-my"></ion-router-outlet>
   </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="tab1" href="/tabs/(tab1:tab1)">
+    <ion-tab-button tab="lipstick-finder" href="/tabs/(o-lipstick-finder:lipstick-finder)">
       <ion-icon name="flash"></ion-icon>
-      <ion-label>Tab One</ion-label>
+      <ion-label>找口红</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" href="/tabs/(tab2:tab2)">
+    <ion-tab-button tab="color-finder" href="/tabs/(o-color-finder:color-finder)">
       <ion-icon name="apps"></ion-icon>
-      <ion-label>Tab Two</ion-label>
+      <ion-label>找色号</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" href="/tabs/(tab3:tab3)">
+    <ion-tab-button tab="my" href="/tabs/(o-my:my)">
       <ion-icon name="send"></ion-icon>
-      <ion-label>Tab Three</ion-label>
+      <ion-label>我的</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
