@@ -1,32 +1,21 @@
 <ion-tabs>
 
-  <ion-tab tab="lipstick-finder">
-    <ion-router-outlet name="o-lipstick-finder"></ion-router-outlet>
-  </ion-tab>
-  <ion-tab tab="color-finder">
-    <ion-router-outlet name="o-color-finder"></ion-router-outlet>
-  </ion-tab>
-  <ion-tab tab="my">
-    <ion-router-outlet name="o-my"></ion-router-outlet>
-  </ion-tab>
-
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="lipstick-finder" href="/tabs/(o-lipstick-finder:lipstick-finder)">
+    <ion-tab-button tab="lipstick-finder">
       <ion-icon name="flash"></ion-icon>
       <ion-label>找口红</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="color-finder" href="/tabs/(o-color-finder:color-finder)">
+    <ion-tab-button tab="color-finder">
       <ion-icon name="apps"></ion-icon>
       <ion-label>找色号</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="my" href="/tabs/(o-my:my)">
+    <ion-tab-button tab="my">
       <ion-icon name="send"></ion-icon>
       <ion-label>我的</ion-label>
     </ion-tab-button>
-
   </ion-tab-bar>
 
 </ion-tabs>

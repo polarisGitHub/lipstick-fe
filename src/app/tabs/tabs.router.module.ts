@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-import { LipstickFinderPage } from './lipstick-finder/lipstick-finder.page';
-import { ColorFinderPage } from './color-finder/color-finder.page';
-import { MyPage } from './my/my.page';
 
 const routes: Routes = [
   {
@@ -12,30 +9,42 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: '',
-        redirectTo: '/tabs/(o-lipstick-finder:lipstick-finder)',
-        pathMatch: 'full',
-      },
-      {
         path: 'lipstick-finder',
-        outlet: 'o-lipstick-finder',
-        component: LipstickFinderPage
+        children: [
+          {
+            path: '',
+            loadChildren: './lipstick-finder/lipstick-finder.module#LipstickFinderPageModule'
+          }
+        ]
       },
       {
         path: 'color-finder',
-        outlet: 'o-color-finder',
-        component: ColorFinderPage
+        children: [
+          {
+            path: '',
+            loadChildren: './color-finder/color-finder.module#ColorFinderPageModule'
+          }
+        ]
       },
       {
         path: 'my',
-        outlet: 'o-my',
-        component: MyPage
+        children: [
+          {
+            path: '',
+            loadChildren: './my/my.module#MyPageModule'
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/lipstick-finder',
+        pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/(o-lipstick-finder:lipstick-finder)',
+    redirectTo: '/tabs/lipstick-finder',
     pathMatch: 'full'
   }
 ];
