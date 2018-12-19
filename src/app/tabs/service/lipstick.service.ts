@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Brand} from '../data/brand';
 import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -11,11 +13,11 @@ export class LipstickService {
         {id: 1, code: 'ysl', name: 'ysl'}
     ];
 
-    constructor() {
+    constructor(private httpClient: HttpClient) {
     }
 
 
     getBrands(): Observable<Brand[]> {
-        return of(this.brands);
+        return this.httpClient.get<Brand[]>('/api/lipstick/product/brands');
     }
 }
