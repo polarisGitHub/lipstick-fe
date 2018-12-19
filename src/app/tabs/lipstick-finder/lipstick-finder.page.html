@@ -11,7 +11,7 @@
         <ion-label>品牌</ion-label>
         <ion-select multiple="true" ok-text="确认" cancel-text="取消">
             <ion-select-option value="all" selected>全部</ion-select-option>
-            <ion-select-option *ngFor="let brand of brands" [value]='brand.id'>{{brand.name}}</ion-select-option>
+            <ion-select-option *ngFor="let brand of brands" [value]='brand.code'>{{brand.name}}</ion-select-option>
         </ion-select>
     </ion-item>
 

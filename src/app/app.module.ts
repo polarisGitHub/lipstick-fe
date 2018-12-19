@@ -26,7 +26,7 @@ import {httpInterceptorProviders} from './http-interceptor/interceptor-providers
         StatusBar,
         SplashScreen,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-        // httpInterceptorProviders,
+        httpInterceptorProviders,
     ],
     bootstrap: [AppComponent]
 })
