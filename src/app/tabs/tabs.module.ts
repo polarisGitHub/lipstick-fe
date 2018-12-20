@@ -20,7 +20,10 @@ import {ColorFinderPageModule} from './color-finder/color-finder.module';
         ColorFinderPageModule,
         MyPageModule
     ],
-    declarations: [TabsPage]
+    declarations: [
+        TabsPage,
+
+    ]
 })
 export class TabsPageModule {
 }

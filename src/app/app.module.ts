@@ -13,14 +13,15 @@ import {httpInterceptorProviders} from './http-interceptor/interceptor-providers
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     entryComponents: [],
     imports: [
         BrowserModule,
         HttpClientModule,
         IonicModule.forRoot(),
-        AppRoutingModule
+        AppRoutingModule,
+
     ],
     providers: [
         StatusBar,

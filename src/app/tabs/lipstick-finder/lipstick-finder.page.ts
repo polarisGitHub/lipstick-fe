@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LipstickService} from '../service/lipstick.service';
 import {Brand} from '../data/brand';
+import {Category} from '../data/category';
 
 @Component({
     selector: 'lipstick-finder',
@@ -14,11 +15,22 @@ export class LipstickFinderPage implements OnInit {
 
     brands: Brand[];
 
-    constructor(private lipstickService: LipstickService) {
+    categories: Category[];
+
+    constructor(
+        private lipstickService: LipstickService,
+    ) {
 
     }
 
     ngOnInit(): void {
         this.lipstickService.getBrands().subscribe(l => this.brands = l);
+    }
+
+    search(): void {
+    }
+
+    brandsChange(brands: string) {
+
     }
 }

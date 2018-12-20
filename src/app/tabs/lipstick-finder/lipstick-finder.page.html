@@ -19,7 +19,8 @@
         <ion-label>类别</ion-label>
         <ion-select multiple="true" ok-text="确认" cancel-text="取消">
             <ion-select-option value="all" selected>全部</ion-select-option>
-            <ion-select-option *ngFor="let brand of brands" [value]='brand.id'>{{brand.name}}</ion-select-option>
+            <ion-select-option *ngFor="let category of categroies"
+                               [value]='category.code'>{{category.name}}</ion-select-option>
         </ion-select>
     </ion-item>
 
@@ -31,7 +32,7 @@
     </ion-item>
 
     <div class="content-center" style="width:90%;margin-top: 10rem">
-        <ion-button shape="round" expand="block" color="danger" fill="outline">
+        <ion-button shape="round" expand="block" color="danger" fill="outline" (click)="search()">
             查找
             <ion-icon name="search"></ion-icon>
         </ion-button>
