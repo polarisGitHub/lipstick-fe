@@ -6,22 +6,31 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content style="margin: 0 1rem 1rem 0">
+<ion-content>
     <ion-item class="spacing">
         <ion-label>品牌</ion-label>
-        <ion-select multiple="true" ok-text="确认" cancel-text="取消">
-            <ion-select-option value="all" selected>全部</ion-select-option>
-            <ion-select-option *ngFor="let brand of brands" [value]='brand.code'>{{brand.name}}</ion-select-option>
+        <ion-select #select_brands multiple="true" ok-text="确认" cancel-text="取消"
+                    (ionChange)="loadCategories(select_brands.value)"
+        >
+            <ion-select-option *ngFor="let brand of brands;let i=index;"
+                               [value]='brand.code'
+                               [selected]="i===0"
+            >
+                {{brand.name}}/{{brand.code}}
+            </ion-select-option>
         </ion-select>
     </ion-item>
 
     <ion-item class="spacing">
         <ion-label>类别</ion-label>
-        <ion-select multiple="true" ok-text="确认" cancel-text="取消">
-            <ion-select-option value="all" selected>全部</ion-select-option>
-            <ion-select-option *ngFor="let category of categroies"
-                               [value]='category.code'>{{category.name}}</ion-select-option>
-        </ion-select>
+        <select multiple="true" ok-text="确认" cancel-text="取消">
+            <option *ngFor="let category of categories;let i=index;"
+                               [value]='category.code'
+                               [selected]="i===0"
+            >
+                {{category.name}}
+            </option>
+        </select>
     </ion-item>
 
     <ion-item class="spacing">
