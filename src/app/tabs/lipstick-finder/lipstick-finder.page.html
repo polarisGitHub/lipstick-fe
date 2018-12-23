@@ -7,43 +7,55 @@
 </ion-header>
 
 <ion-content>
-    <ion-item class="spacing">
-        <ion-label>品牌</ion-label>
-        <ion-select #select_brands multiple="true" ok-text="确认" cancel-text="取消"
-                    (ionChange)="loadCategories(select_brands.value)"
-        >
-            <ion-select-option *ngFor="let brand of brands;let i=index;"
-                               [value]='brand.code'
-                               [selected]="i===0"
+    <form>
+        <ion-list>
+            <ion-item class="spacing">
+                <ion-label>品牌</ion-label>
+                <ion-select required #select_brands multiple="true" ok-text="确认" cancel-text="取消"
+                            (ionChange)="loadCategories(select_brands.value)"
+                >
+                    <ion-select-option *ngFor="let brand of brands;let i=index;"
+                                       [value]='brand.code'
+                                       [selected]="i===0"
+                    >
+                        {{brand.name}}/{{brand.code}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item class="spacing">
+                <ion-label>类别</ion-label>
+                <ion-select required #select_categories multiple="true" ok-text="确认" cancel-text="取消">
+                    <ion-select-option *ngFor="let category of categories;let i=index;"
+                                       [value]='category.code'
+                                       [selected]="i===0"
+                    >
+                        {{category.name}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item class="spacing">
+                <ion-label>色号</ion-label>
+                <ion-item>
+                    <ion-input #color_no type="text" placeholder="#47|星星色"></ion-input>
+                </ion-item>
+            </ion-item>
+        </ion-list>
+
+        <div class="content-center" style='width:90%'>
+            <ion-button shape="round" expand="block" color="danger" fill="outline"
+                        (click)="search({
+                            brand:select_brands.value,
+                            category:select_categories.value,
+                            color:color_no.value
+                        })"
             >
-                {{brand.name}}/{{brand.code}}
-            </ion-select-option>
-        </ion-select>
-    </ion-item>
+                查找
+                <ion-icon name="search"></ion-icon>
+            </ion-button>
+        </div>
+    </form>
 
-    <ion-item class="spacing">
-        <ion-label>类别</ion-label>
-        <select multiple="true" ok-text="确认" cancel-text="取消">
-            <option *ngFor="let category of categories;let i=index;"
-                               [value]='category.code'
-                               [selected]="i===0"
-            >
-                {{category.name}}
-            </option>
-        </select>
-    </ion-item>
 
-    <ion-item class="spacing">
-        <ion-label>色号</ion-label>
-        <ion-item>
-            <ion-input required type="text" placeholder="#47|星星色"></ion-input>
-        </ion-item>
-    </ion-item>
-
-    <div class="content-center" style="width:90%;margin-top: 10rem">
-        <ion-button shape="round" expand="block" color="danger" fill="outline" (click)="search()">
-            查找
-            <ion-icon name="search"></ion-icon>
-        </ion-button>
-    </div>
 </ion-content>

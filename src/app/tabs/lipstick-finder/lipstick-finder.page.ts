@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LipstickService} from '../service/lipstick.service';
 import {Brand} from '../data/brand';
 import {Category} from '../data/category';
+import {AlertService} from '../service/alert.service';
 
 @Component({
     selector: 'lipstick-finder',
@@ -16,7 +17,8 @@ export class LipstickFinderPage implements OnInit {
 
     categories: Category[];
 
-    constructor(private lipstickService: LipstickService) {
+    constructor(private lipstickService: LipstickService,
+                private alertService: AlertService) {
 
     }
 
@@ -32,6 +34,21 @@ export class LipstickFinderPage implements OnInit {
         this.lipstickService.getCategories(brands).subscribe(l => this.categories = l);
     }
 
-    search(): void {
+    search(param: SearchParam): void {
+        if (param.brand.length === 0 || param.category.length === 0 || param.color.length === 0) {
+            this.alertService.presentAlert({
+                header: '错误',
+                message: '【品牌，类别，色号】必填',
+                buttons: ['确认']
+            });
+            return;
+        }
+        // TODO rest
     }
+}
+
+class SearchParam {
+    brand: string;
+    category: string;
+    color: string;
 }
