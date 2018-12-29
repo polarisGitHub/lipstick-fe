@@ -3,7 +3,7 @@ import {LipstickService} from '../../service/lipstick.service';
 import {Brand} from '../../../common/data/brand';
 import {Category} from '../../../common/data/category';
 import {AlertService} from '../../service/alert.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'lipstick-finder-search',
