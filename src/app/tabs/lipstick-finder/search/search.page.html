@@ -6,10 +6,10 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
     <form>
         <ion-list>
-            <ion-item class="spacing">
+            <ion-item>
                 <ion-label>品牌</ion-label>
                 <ion-select required #select_brands multiple="true" ok-text="确认" cancel-text="取消"
                             (ionChange)="loadCategories(select_brands.value)"
@@ -23,7 +23,7 @@
                 </ion-select>
             </ion-item>
 
-            <ion-item class="spacing">
+            <ion-item>
                 <ion-label>类别</ion-label>
                 <ion-select required #select_categories multiple="true" ok-text="确认" cancel-text="取消">
                     <ion-select-option *ngFor="let category of categories;let i=index;"
@@ -35,7 +35,7 @@
                 </ion-select>
             </ion-item>
 
-            <ion-item class="spacing">
+            <ion-item>
                 <ion-label>色号</ion-label>
                 <ion-item>
                     <ion-input #color_no type="text" placeholder="#47|星星色"></ion-input>
