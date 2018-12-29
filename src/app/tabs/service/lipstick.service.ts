@@ -21,4 +21,8 @@ export class LipstickService {
         const brands_str: string = brands.join(',');
         return this.httpClient.get<Category[]>(`/api/lipstick/product/categories/${brands_str}`);
     }
+
+    search(brands: string, categoryise: string, color: string) {
+
+    }
 }
