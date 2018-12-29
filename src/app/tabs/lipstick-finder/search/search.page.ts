@@ -1,25 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {LipstickService} from '../service/lipstick.service';
-import {Brand} from '../data/brand';
-import {Category} from '../data/category';
-import {AlertService} from '../service/alert.service';
+import {LipstickService} from '../../service/lipstick.service';
+import {Brand} from '../../../common/data/brand';
+import {Category} from '../../../common/data/category';
+import {AlertService} from '../../service/alert.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-    selector: 'lipstick-finder',
-    templateUrl: 'lipstick-finder.page.html',
+    selector: 'lipstick-finder-search',
+    templateUrl: 'search.page.html',
     styleUrls: [
-        'lipstick-finder.page.scss'
+        'search.page.scss'
     ]
 })
-export class LipstickFinderPage implements OnInit {
+export class SearchPage implements OnInit {
 
     brands: Brand[];
 
     categories: Category[];
 
     constructor(private lipstickService: LipstickService,
-                private alertService: AlertService) {
-
+                private alertService: AlertService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -43,7 +44,13 @@ export class LipstickFinderPage implements OnInit {
             });
             return;
         }
-        // TODO rest
+        // TODO 相对路径
+        this.router.navigate(['/tabs/lipstick-finder/result', {
+            brand: param.brand,
+            category: param.category,
+            color: param.color
+        }]);
+
     }
 }
 

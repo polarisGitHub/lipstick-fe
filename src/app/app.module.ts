@@ -21,7 +21,6 @@ import {httpInterceptorProviders} from './http-interceptor/interceptor-providers
         HttpClientModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-
     ],
     providers: [
         StatusBar,

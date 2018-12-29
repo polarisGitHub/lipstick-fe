@@ -1,17 +1,27 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { LipstickFinderPage } from './lipstick-finder.page';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
+
+import {IonicModule} from '@ionic/angular';
+
+import {ResultPage} from './result/result.page';
+import {SearchPage} from './search/search.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: LipstickFinderPage }])
-  ],
-  declarations: [LipstickFinderPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {path: '', component: SearchPage},
+            {path: 'result', component: ResultPage}
+        ])
+    ],
+    declarations: [
+        SearchPage,
+        ResultPage
+    ]
 })
-export class LipstickFinderPageModule {}
+export class LipstickFinderPageModule {
+}

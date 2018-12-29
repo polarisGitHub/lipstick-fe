@@ -1,21 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LipstickFinderPage } from './lipstick-finder.page';
+import { ResultPage } from './result.page';
 
-describe('LipstickFinderPage', () => {
-  let component: LipstickFinderPage;
-  let fixture: ComponentFixture<LipstickFinderPage>;
+describe('ResultPage', () => {
+  let component: ResultPage;
+  let fixture: ComponentFixture<ResultPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LipstickFinderPage],
+      declarations: [ ResultPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LipstickFinderPage);
+    fixture = TestBed.createComponent(ResultPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
