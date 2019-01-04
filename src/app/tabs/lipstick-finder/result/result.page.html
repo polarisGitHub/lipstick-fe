@@ -1,8 +1,48 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>result</ion-title>
+        <ion-icon name="arrow-back" (click)="back()"></ion-icon>
+        <ion-title>查找结果</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <div *ngIf="lipstick$|async as lipstick; then result else empty"></div>
+
+    <ng-template #empty let-lipstick>没有找到对应的口红</ng-template>
+
+    <ng-template #result let-lipstick>
+        <ion-grid>
+            <ion-list>
+                <ion-item>
+                    <ion-row class="full-width">
+                        <ion-col size="3">口红</ion-col>
+                        <ion-col size="1">
+                            <div class="content-center color-block"
+                                 [ngStyle]="{'background-color':lipstick.color}">
+                            </div>
+                        </ion-col>
+                        <ion-col size="8" class="ion-text-center">
+                            {{lipstick.goodsName}} {{lipstick.skuName}} {{lipstick.colorNo}}
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+                <ion-item>
+                    <ion-row class="full-width">
+                        <ion-col size="3">色号</ion-col>
+                        <ion-col size="1">
+                            <div class="content-center color-block"
+                                 [ngStyle]="{'background-color':lipstick.color}">
+                            </div>
+                        </ion-col>
+                        <ion-col size="8" class="ion-text-center">
+                            {{lipstick.color.replace("#", "")|uppercase}}
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+            </ion-list>
+        </ion-grid>
+        <ion-button shape="round" expand="block" color="danger" fill="outline">确认</ion-button>
+    </ng-template>
+
+
 </ion-content>
