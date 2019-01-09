@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Brand} from '../../common/data/brand';
 import {Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Category} from '../../common/data/category';
 import {LipstickItem} from '../../common/data/lipstick-item';
 
@@ -24,15 +24,11 @@ export class LipstickService {
         return this.httpClient.get<Category[]>(`/api/lipstick/product/categories/${brands_str}`);
     }
 
-    search(brands: string, categoryise: string, color: string): Observable<LipstickItem> {
-        const mockLipstick: LipstickItem = {
-            brandName: 'YSL',
-            categoryName: '唇膏',
-            goodsName: '圣罗兰莹亮纯魅液体唇膏',
-            skuName: '蜜桃唇语',
-            colorNo: 'N°3',
-            color: '#e46264'
-        };
-        return of(mockLipstick);
+    search(brands: string, categorise: string, colorNo: string): Observable<LipstickItem[]> {
+        const params = new HttpParams()
+            .set('brands', brands)
+            .set('categories', categorise)
+            .set('colorNo', colorNo);
+        return this.httpClient.get<LipstickItem[]>('/api/lipstick/search/', {params: params});
     }
 }

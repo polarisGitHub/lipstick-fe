@@ -5,8 +5,9 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
-import {ResultPage} from './result/result.page';
+import {DetailPage} from './detail/detail.page';
 import {SearchPage} from './search/search.page';
+import {ResultPage} from './result/result.page';
 
 @NgModule({
     imports: [
@@ -15,12 +16,14 @@ import {SearchPage} from './search/search.page';
         IonicModule,
         RouterModule.forChild([
             {path: '', component: SearchPage},
-            {path: 'result', component: ResultPage}
+            {path: 'search', component: ResultPage},
+            {path: 'detail', component: DetailPage}
         ])
     ],
     declarations: [
         SearchPage,
-        ResultPage
+        ResultPage,
+        DetailPage
     ]
 })
 export class LipstickFinderPageModule {

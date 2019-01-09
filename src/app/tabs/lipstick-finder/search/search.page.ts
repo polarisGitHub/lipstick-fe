@@ -45,9 +45,9 @@ export class SearchPage implements OnInit {
             return;
         }
         // TODO 相对路径
-        this.router.navigate(['/tabs/lipstick-finder/result', {
-            brand: param.brand,
-            category: param.category,
+        this.router.navigate(['/tabs/lipstick-finder/search', {
+            brands: param.brand,
+            categories: param.category,
             color: param.color
         }]);
 

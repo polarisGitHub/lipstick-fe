@@ -1,7 +1,7 @@
 export class LipstickItem {
-    brandCode: string;
+    brandCode?: string;
     brandName: string;
-    categoryCode: string;
+    categoryCode?: string;
     categoryName: string;
     goodsName: string;
     skuName: string;

@@ -6,43 +6,27 @@
 </ion-header>
 
 <ion-content padding>
-    <div *ngIf="lipstick$|async as lipstick; then result else empty"></div>
+    <div *ngIf="lipsticks$|async as lipsticks; then result else empty"></div>
 
-    <ng-template #empty let-lipstick>没有找到对应的口红</ng-template>
+    <ng-template #empty let-lipsticks>没有找到对应的口红</ng-template>
 
-    <ng-template #result let-lipstick>
-        <ion-grid>
-            <ion-list>
+    <ng-template #result let-lipsticks>
+        <ion-list>
+            <ion-card *ngFor="let lipstick of lipsticks">
                 <ion-item>
-                    <ion-row class="full-width">
-                        <ion-col size="3">口红</ion-col>
-                        <ion-col size="1">
-                            <div class="content-center color-block"
-                                 [ngStyle]="{'background-color':lipstick.color}">
-                            </div>
-                        </ion-col>
-                        <ion-col size="8" class="ion-text-center">
-                            {{lipstick.goodsName}} {{lipstick.skuName}} {{lipstick.colorNo}}
-                        </ion-col>
-                    </ion-row>
+                    <div class="color-block" [ngStyle]="{'background-color':lipstick.color}"></div>
+                    <ion-label class="ion-text-center">{{lipstick.brandCode}}</ion-label>
+                    <ion-button fill="outline" slot="end">查看</ion-button>
                 </ion-item>
-                <ion-item>
-                    <ion-row class="full-width">
-                        <ion-col size="3">色号</ion-col>
-                        <ion-col size="1">
-                            <div class="content-center color-block"
-                                 [ngStyle]="{'background-color':lipstick.color}">
-                            </div>
-                        </ion-col>
-                        <ion-col size="8" class="ion-text-center">
-                            {{lipstick.color.replace("#", "")|uppercase}}
-                        </ion-col>
-                    </ion-row>
-                </ion-item>
-            </ion-list>
-        </ion-grid>
-        <ion-button shape="round" expand="block" color="danger" fill="outline">确认</ion-button>
+
+                <ion-card-content>
+                    <div class="ion-text-right ion-color-secondary">{{lipstick.goodsName}} </div>
+                    <br/>
+                    <div class="ion-text-right">{{lipstick.skuName}} {{lipstick.colorNo}}</div>
+                </ion-card-content>
+            </ion-card>
+
+        </ion-list>
     </ng-template>
-
 
 </ion-content>
