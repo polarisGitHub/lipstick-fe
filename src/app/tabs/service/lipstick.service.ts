@@ -31,4 +31,8 @@ export class LipstickService {
             .set('colorNo', colorNo);
         return this.httpClient.get<LipstickItem[]>('/api/lipstick/search/', {params: params});
     }
+
+    getBySkuCode(skuCode: string): Observable<LipstickItem> {
+        return this.httpClient.get<LipstickItem>(`/api/lipstick/product/sku/${skuCode}`);
+    }
 }
