@@ -6,26 +6,29 @@
 </ion-header>
 
 <ion-content padding>
-    <div *ngIf="lipsticks$|async as lipsticks; then result else empty"></div>
+    <div *ngIf="skus$|async as skus; then result else empty"></div>
 
-    <ng-template #empty let-lipsticks>没有找到对应的口红</ng-template>
+    <ng-template #empty let-skus>没有找到对应的口红</ng-template>
 
-    <ng-template #result let-lipsticks>
+    <ng-template #result let-skus>
         <ion-list>
-            <ion-card *ngFor="let lipstick of lipsticks">
-                <ion-item>
-                    <div class="color-block" [ngStyle]="{'background-color':lipstick.color}"></div>
-                    <ion-label class="ion-text-center">{{lipstick.brandCode}}</ion-label>
-                    <ion-button fill="outline" slot="end">查看</ion-button>
-                </ion-item>
+            <a *ngFor="let sku of skus" style="text-decoration:none"
+               [routerLink]="['/tabs/lipstick-finder/detail',sku.skuCode]">
+                <ion-card>
+                    <ion-item>
+                        <div class="color-block" [ngStyle]="{'background-color':sku.color}"></div>
+                        <ion-label class="ion-text-center">{{sku.brandCode}}</ion-label>
+                    </ion-item>
 
-                <ion-card-content>
-                    <div class="ion-text-right ion-color-secondary">{{lipstick.goodsName}} </div>
-                    <br/>
-                    <div class="ion-text-right">{{lipstick.skuName}} {{lipstick.colorNo}}</div>
-                </ion-card-content>
-            </ion-card>
-
+                    <ion-card-content>
+                        <div class="ion-text-right">{{sku.goodsName}} </div>
+                        <div class="ion-text-right">
+                            <span>{{sku.skuName}} </span>
+                            <span>{{sku.colorNo}}</span>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </a>
         </ion-list>
     </ng-template>
 
