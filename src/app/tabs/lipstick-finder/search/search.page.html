@@ -26,9 +26,9 @@
             <ion-item>
                 <ion-label>类别</ion-label>
                 <ion-select required #select_categories multiple="true" ok-text="确认" cancel-text="取消">
-                    <ion-select-option *ngFor="let category of categories;let i=index;"
+                    <ion-select-option *ngFor="let category of categories;first as isFirst"
                                        [value]='category.code'
-                                       [selected]="i===0"
+                                       [selected]="isFirst"
                     >
                         {{category.name}}
                     </ion-select-option>
@@ -38,7 +38,7 @@
             <ion-item>
                 <ion-label>色号</ion-label>
                 <ion-item>
-                    <ion-input #color_no type="text" placeholder="#47|星星色"></ion-input>
+                    <ion-input #color_no type="text" placeholder="47/星星色"></ion-input>
                 </ion-item>
             </ion-item>
         </ion-list>
