@@ -1,4 +1,4 @@
-export class LipstickItem {
+export class LipstickListItem {
     brandCode?: string;
     brandName: string;
     categoryCode?: string;
@@ -8,4 +8,5 @@ export class LipstickItem {
     skuName: string;
     colorNo: string;
     color: string;
+    figure: string;
 }

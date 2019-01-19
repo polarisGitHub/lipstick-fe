@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {LipstickItem} from '../../../common/data/lipstick-item';
+import {LipstickListItem} from '../../../common/data/lipstick-list-item';
 import {LipstickService} from '../../service/lipstick.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
@@ -12,7 +12,7 @@ import {Location} from '@angular/common';
 })
 export class ResultPage implements OnInit {
 
-    public skus$: Observable<LipstickItem[]>;
+    public skus$: Observable<LipstickListItem[]>;
 
     constructor(private lipstickService: LipstickService,
                 private router: Router,

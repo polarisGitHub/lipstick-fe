@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {LipstickService} from '../../service/lipstick.service';
 import {Location} from '@angular/common';
 import {Observable} from 'rxjs';
-import {LipstickItem} from '../../../common/data/lipstick-item';
+import {LipstickListItem} from '../../../common/data/lipstick-list-item';
 
 @Component({
     selector: 'lipstick-finder-result',
@@ -12,7 +12,7 @@ import {LipstickItem} from '../../../common/data/lipstick-item';
 })
 export class DetailPage implements OnInit {
 
-    public sku$: Observable<LipstickItem>;
+    public sku$: Observable<LipstickListItem>;
 
     constructor(private lipstickService: LipstickService,
                 private activatedRoute: ActivatedRoute,

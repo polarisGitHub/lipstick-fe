@@ -3,7 +3,7 @@ import {Brand} from '../../common/data/brand';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Category} from '../../common/data/category';
-import {LipstickItem} from '../../common/data/lipstick-item';
+import {LipstickListItem} from '../../common/data/lipstick-list-item';
 
 @Injectable({
     providedIn: 'root'
@@ -24,15 +24,15 @@ export class LipstickService {
         return this.httpClient.get<Category[]>(`/api/lipstick/product/categories/${brands_str}`);
     }
 
-    search(brands: string, categorise: string, colorNo: string): Observable<LipstickItem[]> {
+    search(brands: string, categorise: string, colorNo: string): Observable<LipstickListItem[]> {
         const params = new HttpParams()
             .set('brands', brands)
             .set('categories', categorise)
             .set('colorNo', colorNo);
-        return this.httpClient.get<LipstickItem[]>('/api/lipstick/search/', {params: params});
+        return this.httpClient.get<LipstickListItem[]>('/api/lipstick/search/', {params: params});
     }
 
-    getBySkuCode(skuCode: string): Observable<LipstickItem> {
-        return this.httpClient.get<LipstickItem>(`/api/lipstick/product/sku/${skuCode}`);
+    getBySkuCode(skuCode: string): Observable<LipstickListItem> {
+        return this.httpClient.get<LipstickListItem>(`/api/lipstick/product/sku/${skuCode}`);
     }
 }
