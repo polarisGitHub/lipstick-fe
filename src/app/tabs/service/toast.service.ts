@@ -13,7 +13,7 @@ export class ToastService {
         const option: object = {
             message: message,
             position: 'top',
-            duration: 2000
+            duration: 2000,
         };
         Object.assign(option, extension);
         return this.presentToast(option);
@@ -23,8 +23,7 @@ export class ToastService {
         const option: object = {
             message: message,
             position: 'middle',
-            cssClass: 'width: 50%',
-            duration: 200000
+            duration: 2000
         };
         Object.assign(option, extension);
         return this.presentToast(option);

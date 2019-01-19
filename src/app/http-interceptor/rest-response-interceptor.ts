@@ -1,9 +1,10 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {map, mergeMap} from 'rxjs/operators';
+import {catchError, map, mergeMap} from 'rxjs/operators';
 import {ToastService} from '../tabs/service/toast.service';
 import {RestResponse} from './data/rest-response';
+import {error} from '@angular/compiler/src/util';
 
 @Injectable()
 export class HttpRestResponseInterceptor implements HttpInterceptor {
@@ -23,11 +24,19 @@ export class HttpRestResponseInterceptor implements HttpInterceptor {
                     if (restResponse.code === this.SUCCESS) {
                         return event.clone({body: restResponse.data});
                     } else {
-                        this.toastService.presentTopToast(restResponse.errorCode + '：' + restResponse.message, {});
+                        this.toastService.presentMidToast(
+                            restResponse.errorCode + '：' + restResponse.message, {
+                                color: 'secondary',
+                                cssClass: 'ion-text-center rest-error-toast-width'
+                            });
                         return event.clone({body: null});
                     }
                 }
                 return event;
+            }),
+            catchError((err: HttpErrorResponse) => {
+                this.toastService.presentMidToast('出错了', {color: 'secondary', cssClass: 'ion-text-center rest-error-toast-width'});
+                return throwError(err);
             })
         );
     }
