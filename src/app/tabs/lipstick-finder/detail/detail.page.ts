@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {LipstickService} from '../../service/lipstick.service';
-import {Location} from '@angular/common';
 import {Observable} from 'rxjs';
 import {LipstickListItem} from '../../../common/data/lipstick-list-item';
 
@@ -15,17 +14,12 @@ export class DetailPage implements OnInit {
     public sku$: Observable<LipstickListItem>;
 
     constructor(private lipstickService: LipstickService,
-                private activatedRoute: ActivatedRoute,
-                private location: Location) {
+                private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.activatedRoute.paramMap.subscribe((params) => {
             this.sku$ = this.lipstickService.getBySkuCode(params.get('skuCode'));
         });
-    }
-
-    back(): void {
-        this.location.back();
     }
 }

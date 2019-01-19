@@ -1,6 +1,5 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 export class LoggingInterceptor implements HttpInterceptor {
 
