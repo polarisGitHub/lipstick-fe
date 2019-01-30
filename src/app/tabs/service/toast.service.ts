@@ -9,33 +9,39 @@ export class ToastService {
     constructor(public toastController: ToastController) {
     }
 
-    async presentTopToast(message: string, extension: object) {
+    async presentTopToast(message: string, extension?: object) {
         const option: object = {
             message: message,
             position: 'top',
             duration: 2000,
         };
-        Object.assign(option, extension);
+        if (extension) {
+            Object.assign(option, extension);
+        }
         return this.presentToast(option);
     }
 
-    async presentMidToast(message: string, extension: object) {
+    async presentMidToast(message: string, extension?: object) {
         const option: object = {
             message: message,
             position: 'middle',
             duration: 2000
         };
-        Object.assign(option, extension);
+        if (extension) {
+            Object.assign(option, extension);
+        }
         return this.presentToast(option);
     }
 
-    async presentButtonToast(message: string, extension: object) {
+    async presentButtonToast(message: string, extension?: object) {
         const option: object = {
             message: message,
             position: 'bottom',
             duration: 2000
         };
-        Object.assign(option, extension);
+        if (extension) {
+            Object.assign(option, extension);
+        }
         return this.presentToast(option);
     }
 

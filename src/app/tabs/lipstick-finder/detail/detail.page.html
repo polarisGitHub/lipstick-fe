@@ -43,6 +43,9 @@
                 </ion-item>
             </ion-list>
         </ion-grid>
-        <ion-button shape="round" expand="block" color="danger" fill="outline">确认</ion-button>
+        <ion-button shape="round" expand="block" color="danger" fill="outline"
+                    (click)="saveFavorites(sku.brandCode,sku.skuCode)">
+            收藏
+        </ion-button>
     </ng-template>
 </ion-content>

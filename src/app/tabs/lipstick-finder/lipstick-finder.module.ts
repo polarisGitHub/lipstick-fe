@@ -17,7 +17,7 @@ import {ResultPage} from './result/result.page';
         RouterModule.forChild([
             {path: '', component: SearchPage},
             {path: 'search', component: ResultPage},
-            {path: 'detail/:skuCode', component: DetailPage}
+            {path: 'detail/:brandCode/:skuCode', component: DetailPage}
         ])
     ],
     declarations: [

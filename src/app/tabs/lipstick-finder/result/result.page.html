@@ -15,7 +15,7 @@
     <ng-template #result let-skus>
         <ion-list>
             <a *ngFor="let sku of skus" style="text-decoration:none"
-               [routerLink]="['/tabs/lipstick-finder/detail',sku.skuCode]">
+               [routerLink]="['/tabs/lipstick-finder/detail',sku.brandCode,sku.skuCode]">
                 <ion-card>
                     <ion-item>
                         <div class="color-block" [ngStyle]="{'background-color':sku.color}"></div>

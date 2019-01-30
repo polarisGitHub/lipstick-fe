@@ -32,7 +32,9 @@ export class LipstickService {
         return this.httpClient.get<LipstickListItem[]>('/api/lipstick/search/', {params: params});
     }
 
-    getBySkuCode(skuCode: string): Observable<LipstickListItem> {
-        return this.httpClient.get<LipstickListItem>(`/api/lipstick/product/sku/${skuCode}`);
+    getBySkuCode(brandCode: string, skuCode: string): Observable<LipstickListItem> {
+        return this.httpClient.get<LipstickListItem>(`/api/lipstick/product/sku/${brandCode}/${skuCode}`);
     }
+
+
 }
