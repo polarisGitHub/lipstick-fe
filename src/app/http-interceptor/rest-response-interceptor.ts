@@ -27,7 +27,7 @@ export class HttpRestResponseInterceptor implements HttpInterceptor {
                         this.toastService.presentMidToast(
                             restResponse.errorCode + '：' + restResponse.message, {
                                 color: 'secondary',
-                                cssClass: 'ion-text-center rest-error-toast-width'
+                                cssClass: 'ion-text-center'
                             });
                         return event.clone({body: null});
                     }
@@ -35,7 +35,7 @@ export class HttpRestResponseInterceptor implements HttpInterceptor {
                 return event;
             }),
             catchError((err: HttpErrorResponse) => {
-                this.toastService.presentMidToast('出错了', {color: 'secondary', cssClass: 'ion-text-center rest-error-toast-width'});
+                this.toastService.presentMidToast('出错了', {color: 'secondary', cssClass: 'ion-text-center'});
                 return throwError(err);
             })
         );
