@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      我的
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            我的
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="3">
+                <ion-avatar>
+                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                </ion-avatar>
+            </ion-col>
+            <ion-col class="content-center">
+                <ion-text>test</ion-text>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div *ngIf="favorites$|async as favorites; then favorites else empty"></div>
+
+    <ng-template #empty let-favorites>没有收藏</ng-template>
+
+    <ng-template #favorites let-favorites>
+        <ion-list>
+            <ion-item *ngFor="let favorite of favorites">
+                <ion-row class="full-width">
+                    <ion-col size="1">
+                        <div class="content-center color-block"
+                             [ngStyle]="{'background-color':favorite.color}">
+                        </div>
+                    </ion-col>
+                    <ion-col size="10">
+                        {{favorite.goodsName}} {{favorite.skuName}} {{favorite.colorNo}}
+                    </ion-col>
+                    <ion-col (click)="remove(favorite.id)">
+                        <ion-icon name="close" class="content-center"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </ng-template>
+</ion-content>
