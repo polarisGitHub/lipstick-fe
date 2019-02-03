@@ -5,19 +5,23 @@ import {catchError, map, mergeMap} from 'rxjs/operators';
 import {ToastService} from '../tabs/service/toast.service';
 import {RestResponse} from './data/rest-response';
 import {error} from '@angular/compiler/src/util';
+import {UserService} from '../tabs/service/user.service';
 
 @Injectable()
 export class HttpRestResponseInterceptor implements HttpInterceptor {
 
     private SUCCESS = 'success';
 
-    constructor(private toastService: ToastService) {
+    constructor(private toastService: ToastService,
+                private userService: UserService) {
 
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // TODO error handle
-        return next.handle(request).pipe(
+        const user = this.userService.getUserInfo();
+        const clonedRequest = request.clone({headers: request.headers.set('jwt', user ? user.token : '')});
+
+        return next.handle(clonedRequest).pipe(
             map((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
                     const restResponse: RestResponse = Object.assign(new RestResponse(), event.body);

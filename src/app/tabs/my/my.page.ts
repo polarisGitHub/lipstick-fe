@@ -28,6 +28,10 @@ export class MyPage implements OnInit {
         });
     }
 
+    getUserInfo(): void {
+
+    }
+
     load(): void {
         this.favorites$ = this.favoritesService.queryFavorite();
     }
