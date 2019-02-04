@@ -4,6 +4,8 @@ import {Favorites} from '../../common/data/favorites';
 import {FavoritesService} from '../service/favorites.service';
 import {ToastService} from '../service/toast.service';
 import {NavigationEnd, Router} from '@angular/router';
+import {UserService} from '../service/user.service';
+import {User} from '../../common/data/user';
 
 @Component({
     selector: 'my',
@@ -14,10 +16,13 @@ export class MyPage implements OnInit {
 
     favorites$: Observable<Favorites>;
 
+    user: User = this.userService.getUserInfo();
+
     constructor(private favoritesService: FavoritesService,
                 private toastService: ToastService,
-                private router: Router) {
-
+                private router: Router,
+                private userService: UserService) {
+        this.load();
     }
 
     ngOnInit(): void {
@@ -26,10 +31,6 @@ export class MyPage implements OnInit {
                 this.load();
             }
         });
-    }
-
-    getUserInfo(): void {
-
     }
 
     load(): void {

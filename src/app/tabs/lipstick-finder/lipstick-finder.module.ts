@@ -5,15 +5,17 @@ import {RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
-import {DetailPage} from './detail/detail.page';
+import {DetailPage} from '../common/detail/detail.page';
 import {SearchPage} from './search/search.page';
 import {ResultPage} from './result/result.page';
+import {CommonPageModule} from '../common/common.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
+        CommonPageModule,
         RouterModule.forChild([
             {path: '', component: SearchPage},
             {path: 'search', component: ResultPage},
@@ -23,7 +25,6 @@ import {ResultPage} from './result/result.page';
     declarations: [
         SearchPage,
         ResultPage,
-        DetailPage
     ]
 })
 export class LipstickFinderPageModule {

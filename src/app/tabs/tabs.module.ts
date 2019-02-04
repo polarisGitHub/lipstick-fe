@@ -18,11 +18,10 @@ import {LipstickFinderPageModule} from './lipstick-finder/lipstick-finder.module
         TabsPageRoutingModule,
         LipstickFinderPageModule,
         ColorFinderPageModule,
-        MyPageModule
+        MyPageModule,
     ],
     declarations: [
         TabsPage,
-
     ]
 })
 export class TabsPageModule {
