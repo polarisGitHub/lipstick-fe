@@ -3,7 +3,7 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {MyPage} from './my.page';
+import {MainPage} from './main/main.page';
 import {CommonPageModule} from '../common/common.module';
 import {DetailPage} from './detail/detail.page';
 
@@ -14,13 +14,13 @@ import {DetailPage} from './detail/detail.page';
         FormsModule,
         CommonPageModule,
         RouterModule.forChild([
-            {path: '', component: MyPage},
+            {path: '', component: MainPage},
             {path: 'detail/:brandCode/:skuCode', component: DetailPage}
         ])
     ],
     declarations: [
         DetailPage,
-        MyPage,
+        MainPage,
     ]
 })
 export class MyPageModule {

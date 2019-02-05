@@ -27,24 +27,24 @@
 
     <ng-template #favorites let-favorites>
         <ion-list>
-            <a *ngFor="let favorite of favorites" style="text-decoration:none"
-               [routerLink]="['/tabs/my/detail',favorite.brandCode,favorite.skuCode]">
-                <ion-item>
-                    <ion-row class="full-width">
-                        <ion-col size="1">
-                            <div class="content-center color-block"
-                                 [ngStyle]="{'background-color':favorite.color}">
-                            </div>
-                        </ion-col>
-                        <ion-col size="10">
+
+            <ion-item *ngFor="let favorite of favorites">
+                <ion-row class="full-width">
+                    <ion-col size="1">
+                        <div class="content-center color-block"
+                             [ngStyle]="{'background-color':favorite.color}">
+                        </div>
+                    </ion-col>
+                    <ion-col size="10">
+                        <a [routerLink]="['/tabs/my/detail',favorite.brandCode,favorite.skuCode]">
                             {{favorite.goodsName}} {{favorite.skuName}} {{favorite.colorNo}}
-                        </ion-col>
-                        <ion-col (click)="remove(favorite.id)">
-                            <ion-icon name="close" class="content-center"></ion-icon>
-                        </ion-col>
-                    </ion-row>
-                </ion-item>
-            </a>
+                        </a>
+                    </ion-col>
+                    <div class="content-center" (click)="remove(favorite.skuName,favorite.id)">
+                        <ion-icon name="close"></ion-icon>
+                    </div>
+                </ion-row>
+            </ion-item>
         </ion-list>
     </ng-template>
 </ion-content>
