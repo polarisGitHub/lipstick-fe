@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
-import {DetailPage} from './detail/detail.page';
+import {SkuDetailComponent} from './sku-detail/sku-detail.component';
 
 
 @NgModule({
@@ -13,7 +13,10 @@ import {DetailPage} from './detail/detail.page';
         IonicModule,
     ],
     declarations: [
-        DetailPage
+        SkuDetailComponent
+    ],
+    exports: [
+        SkuDetailComponent
     ]
 })
 export class CommonPageModule {

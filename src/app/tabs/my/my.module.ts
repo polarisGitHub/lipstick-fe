@@ -4,8 +4,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {MyPage} from './my.page';
-import {DetailPage} from '../common/detail/detail.page';
 import {CommonPageModule} from '../common/common.module';
+import {DetailPage} from './detail/detail.page';
 
 @NgModule({
     imports: [
@@ -15,10 +15,11 @@ import {CommonPageModule} from '../common/common.module';
         CommonPageModule,
         RouterModule.forChild([
             {path: '', component: MyPage},
-            {path: 'lipstick/detail/:brandCode/:skuCode', component: DetailPage}
+            {path: 'detail/:brandCode/:skuCode', component: DetailPage}
         ])
     ],
     declarations: [
+        DetailPage,
         MyPage,
     ]
 })

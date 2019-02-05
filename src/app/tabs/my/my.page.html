@@ -28,7 +28,7 @@
     <ng-template #favorites let-favorites>
         <ion-list>
             <a *ngFor="let favorite of favorites" style="text-decoration:none"
-               [routerLink]="['/tabs/my/lipstick/detail',favorite.brandCode,favorite.skuCode]">
+               [routerLink]="['/tabs/my/detail',favorite.brandCode,favorite.skuCode]">
                 <ion-item>
                     <ion-row class="full-width">
                         <ion-col size="1">

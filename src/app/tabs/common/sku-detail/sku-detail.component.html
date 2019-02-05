@@ -1,0 +1,37 @@
+<div *ngIf="sku; then result else empty"></div>
+
+<ng-template #empty let-sku>没有找到对应的口红</ng-template>
+
+<ng-template #result let-sku>
+    <ion-grid>
+        <ion-list>
+            <ion-item>
+                <ion-row class="full-width">
+                    <ion-col size="2">口红</ion-col>
+                    <ion-col size="1">
+                        <div class="content-center color-block"
+                             [ngStyle]="{'background-color':sku.color}">
+                        </div>
+                    </ion-col>
+                    <ion-col class="ion-text-center">
+                        {{sku.goodsName}} {{sku.skuName}} {{sku.colorNo}}
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item>
+                <ion-row class="full-width">
+                    <ion-col size="2">色号</ion-col>
+                    <ion-col size="1">
+                        <div class="content-center color-block"
+                             [ngStyle]="{'background-color':sku.color}">
+                        </div>
+                    </ion-col>
+                    <ion-col class="ion-text-center">
+                        {{sku.color.replace("#", "")|uppercase}}
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+
+</ng-template>

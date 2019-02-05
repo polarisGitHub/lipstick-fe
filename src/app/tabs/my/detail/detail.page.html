@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>口红信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <sku-detail [sku]="sku$|async"></sku-detail>
+</ion-content>

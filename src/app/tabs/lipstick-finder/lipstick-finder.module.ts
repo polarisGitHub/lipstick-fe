@@ -5,10 +5,10 @@ import {RouterModule} from '@angular/router';
 
 import {IonicModule} from '@ionic/angular';
 
-import {DetailPage} from '../common/detail/detail.page';
 import {SearchPage} from './search/search.page';
 import {ResultPage} from './result/result.page';
 import {CommonPageModule} from '../common/common.module';
+import {DetailPage} from './detail/detail.page';
 
 @NgModule({
     imports: [
@@ -23,6 +23,7 @@ import {CommonPageModule} from '../common/common.module';
         ])
     ],
     declarations: [
+        DetailPage,
         SearchPage,
         ResultPage,
     ]

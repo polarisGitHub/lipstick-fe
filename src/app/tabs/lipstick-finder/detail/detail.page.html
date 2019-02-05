@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>口红信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div *ngIf="sku$ |async as sku">
+        <sku-detail [sku]="sku"></sku-detail>
+        <ion-button shape="round" expand="block" color="danger" fill="outline"
+                    (click)="saveFavorites(sku.brandCode,sku.skuCode)">
+            收藏
+        </ion-button>
+    </div>
+</ion-content>
