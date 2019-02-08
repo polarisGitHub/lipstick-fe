@@ -36,10 +36,18 @@ export class SearchPage implements OnInit {
     }
 
     search(param: SearchParam): void {
-        if (param.brand.length === 0 || param.category.length === 0 || param.color.length === 0) {
+        if (param.brand.length === 0 ) {
             this.alertService.presentAlert({
                 header: '错误',
-                message: '【品牌，类别，色号】必填',
+                message: '【品牌】必填',
+                buttons: ['确认']
+            });
+            return;
+        }
+        if (param.category.length === 0 && param.color.length === 0){
+            this.alertService.presentAlert({
+                header: '错误',
+                message: '【类别，色号】必填一项',
                 buttons: ['确认']
             });
             return;
