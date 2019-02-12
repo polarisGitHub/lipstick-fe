@@ -8,11 +8,8 @@
 </ion-header>
 
 <ion-content padding>
-    <div *ngIf="skus$|async as skus; then result else empty"></div>
-
-    <ng-template #empty let-skus>没有找到对应的口红</ng-template>
-
-    <ng-template #result let-skus>
+    <div *ngIf="skus!=null && skus.length===0">没有找到对应的口红</div>
+    <div *ngIf="skus!=null && skus.length>0">
         <ion-list>
             <a *ngFor="let sku of skus" style="text-decoration:none"
                [routerLink]="['/tabs/lipstick-finder/detail',sku.brandCode,sku.skuCode]">
@@ -33,6 +30,5 @@
                 </ion-card>
             </a>
         </ion-list>
-    </ng-template>
-
+    </div>
 </ion-content>

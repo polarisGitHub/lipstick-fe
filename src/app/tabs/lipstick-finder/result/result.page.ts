@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
 import {LipstickListItem} from '../../../common/data/lipstick-list-item';
 import {LipstickService} from '../../service/lipstick.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {LoadingService} from '../../service/loading.service';
 
 @Component({
     selector: 'lipstick-finder-result',
@@ -11,16 +11,17 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ResultPage implements OnInit {
 
-    public skus$: Observable<LipstickListItem[]>;
+    public skus: LipstickListItem[];
 
     constructor(private lipstickService: LipstickService,
                 private router: Router,
-                private activatedRoute: ActivatedRoute) {
+                private activatedRoute: ActivatedRoute,
+                private loadingService: LoadingService) {
     }
 
     ngOnInit() {
         this.activatedRoute.paramMap.subscribe(params => {
-            this.skus$ = this.lipstickService.search(params.get('brands'), params.get('categories'), params.get('color'));
+            this.lipstickService.search(params.get('brands'), params.get('categories'), params.get('color')).subscribe(l => this.skus = l);
         });
     }
 }
