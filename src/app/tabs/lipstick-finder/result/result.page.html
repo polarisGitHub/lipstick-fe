@@ -15,7 +15,7 @@
                [routerLink]="['/tabs/lipstick-finder/detail',sku.brandCode,sku.skuCode]">
                 <ion-card>
                     <ion-item>
-                        <div class="color-block" [ngStyle]="{'background-color':sku.color}"></div>
+                        <color-card [color]="sku.color" [color1]="sku.color1"></color-card>
                         <ion-label class="ion-text-center">{{sku.brandCode}}</ion-label>
                     </ion-item>
 

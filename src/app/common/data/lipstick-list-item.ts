@@ -8,5 +8,6 @@ export class LipstickListItem {
     skuName: string;
     colorNo: string;
     color: string;
+    color1: string;
     figure: string;
 }

@@ -1,0 +1,11 @@
+<ng-container *ngIf="color1; then double_color else single_color "></ng-container>
+
+<ng-template #double_color>
+    <div class="content-center half-color-block" [ngStyle]="{'background-color':color}"></div>
+    <div class="content-center half-color-block" [ngStyle]="{'background-color':color1}"></div>
+</ng-template>
+
+<ng-template #single_color>
+    <div class="content-center color-block" [ngStyle]="{'background-color':color}"></div>
+</ng-template>
+

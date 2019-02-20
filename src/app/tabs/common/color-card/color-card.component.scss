@@ -1,0 +1,13 @@
+$block-height: 1.5rem;
+
+.color-block {
+  display: inline-block;
+  width: $block-height;
+  height: $block-height
+}
+
+.half-color-block {
+  display: inline-block;
+  width: $block-height/2;
+  height: $block-height
+}
