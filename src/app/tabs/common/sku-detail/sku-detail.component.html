@@ -7,23 +7,24 @@
         <ion-list>
             <ion-item>
                 <ion-row class="full-width">
-                    <ion-col size="2">口红</ion-col>
-                    <ion-col size="2">
-                        <color-card [color]="sku.color" [color1]="sku.color1"></color-card>
-                    </ion-col>
                     <ion-col class="ion-text-center">
-                        {{sku.goodsName}} {{sku.skuName}} {{sku.colorNo}}
+                        {{sku.goodsName}}
                     </ion-col>
                 </ion-row>
             </ion-item>
             <ion-item>
                 <ion-row class="full-width">
-                    <ion-col size="2">色号</ion-col>
-                    <ion-col size="2">
-                        <color-card [color]="sku.color" [color1]="sku.color1"></color-card>
-                    </ion-col>
                     <ion-col class="ion-text-center">
-                        {{sku.color.replace("#", "")|uppercase}}
+                        {{sku.skuName}} {{sku.colorNo}}
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item>
+                <ion-row class="full-width">
+                    <ion-col class="ion-text-center" >
+                        <color-card style="vertical-align:sub" [color]="sku.color" [color1]="sku.color1"></color-card>
+                        &nbsp;&nbsp;
+                        <span>{{sku.color.replace("#", "")|uppercase}}</span>
                     </ion-col>
                 </ion-row>
             </ion-item>

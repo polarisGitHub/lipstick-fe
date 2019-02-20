@@ -7,5 +7,6 @@ export class Favorites {
     skuCode: string;
     skuName: string;
     color: string;
+    color1: string;
     colorNo: string;
 }
