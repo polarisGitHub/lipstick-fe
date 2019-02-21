@@ -3,6 +3,11 @@
 <ng-template #empty let-sku>没有找到对应的口红</ng-template>
 
 <ng-template #result let-sku>
+    <ion-slides class="slide-height" pager="true" [options]="{effect: 'flip'}">
+        <ion-slide *ngFor="let image of sku.images">
+            <ion-img [src]="'/image/'+image"></ion-img>
+        </ion-slide>
+    </ion-slides>
     <ion-grid>
         <ion-list>
             <ion-item>
@@ -21,7 +26,7 @@
             </ion-item>
             <ion-item>
                 <ion-row class="full-width">
-                    <ion-col class="ion-text-center" >
+                    <ion-col class="ion-text-center">
                         <color-card style="vertical-align:sub" [color]="sku.color" [color1]="sku.color1"></color-card>
                         &nbsp;&nbsp;
                         <span>{{sku.color.replace("#", "")|uppercase}}</span>

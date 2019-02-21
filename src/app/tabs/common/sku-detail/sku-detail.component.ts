@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LipstickListItem} from '../../../common/data/lipstick-list-item';
+import {LipstickDetailItem} from '../../../common/data/lipstick-detail-item';
 
 @Component({
     selector: 'sku-detail',
@@ -9,7 +9,7 @@ import {LipstickListItem} from '../../../common/data/lipstick-list-item';
 export class SkuDetailComponent implements OnInit {
 
 
-    @Input() sku: LipstickListItem;
+    @Input() sku: LipstickDetailItem;
 
     constructor() {
     }
