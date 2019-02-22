@@ -1,4 +1,5 @@
 export class LipstickListItem {
+    id: string;
     brandCode?: string;
     brandName: string;
     categoryCode?: string;

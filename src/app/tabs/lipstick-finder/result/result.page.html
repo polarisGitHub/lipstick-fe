@@ -11,8 +11,9 @@
     <div *ngIf="skus!=null && skus.length===0">没有找到对应的口红</div>
     <div *ngIf="skus!=null && skus.length>0">
         <ion-list>
-            <a *ngFor="let sku of skus" style="text-decoration:none"
-               [routerLink]="['/tabs/lipstick-finder/detail',sku.brandCode,sku.skuCode]">
+            <a style="text-decoration:none" *ngFor="let sku of skus;trackBy: identify"
+                [routerLink]="['/tabs/lipstick-finder/detail',sku.brandCode,sku.skuCode]"
+            >
                 <ion-card>
                     <ion-item>
                         <color-card [color]="sku.color" [color1]="sku.color1"></color-card>
@@ -31,4 +32,11 @@
             </a>
         </ion-list>
     </div>
+
+    <ion-infinite-scroll (ionInfinite)="loadMoreSearchData($event)">
+        <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="加载中">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>
